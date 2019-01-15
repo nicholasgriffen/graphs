@@ -1,0 +1,15 @@
+class Graph(Vertices, Edges)
+private Edges[] edges;
+
+class Edge(from, to, weight)
+Edge(from, to, weight)  
+	this.from = from 
+	this.to = to 
+	this.weight = weight ? weight : null
+Edge[]{"AB": 6}
+class PathFinder() {
+	this.
+	route = new Graph() 
+}
+
+TripPlanner
