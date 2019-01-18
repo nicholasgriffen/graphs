@@ -17,8 +17,8 @@ public class Path {
             this.weight += edge.getWeight();
         }
         this.edges = edges;
-        this.source = edges.get(0).getFrom();
-        this.destination = edges.get(edges.size() - 1).getTo();
+        this.source = edges.get(0).getSource();
+        this.destination = edges.get(edges.size() - 1).getSource();
     }
 
     public int getWeight() {
@@ -32,7 +32,7 @@ public class Path {
     public ArrayList<String> getNodeNames() {
         ArrayList<String> nodes = new ArrayList<>();
         for (Edge edge : this.edges) {
-            String nodeName = edge.getFrom().getName();
+            String nodeName = edge.getSource().getName();
             if (!nodes.contains(nodeName)) {
                 nodes.add(nodeName);
             }
