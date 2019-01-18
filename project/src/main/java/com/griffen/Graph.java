@@ -13,30 +13,35 @@ public class Graph {
         this.edgesBySource = new HashMap<>();
         this.nodesByName = new HashMap<>();
     }
-
+    
     public Node getNode(String name) {
         return this.nodesByName.get(name);
     }
-
-    public void addEdge(Edge edge) {
-        Node from = edge.getFrom();
-        Node to = edge.getTo();
-
-        this.nodesByName.putIfAbsent(from.getName(), from);
-        this.nodesByName.putIfAbsent(to.getName(), to);
-        
-        if (this.edgesBySource.containsKey(from)) {
-            this.edgesBySource.get(from).add(edge);
-        } else {
-            this.edgesBySource.put(from, new ArrayList<Edge>());
-            this.edgesBySource.get(from).add(edge);
-        }
-    }
-
+    
     public ArrayList<Edge> getNeighbors(Node source) {
         ArrayList<Edge> neighbors = this.edgesBySource.get(source);
-        
         return neighbors;
+    }
+    
+    public void addNodesAndEdge(Edge edge) {
+        this.addNodes(edge)
+        this.addEdge(edge)
+    }
+    
+    private void addNodes(Edge edge) {
+        Node source = edge.getFrom();
+        Node destination = edge.getTo();
+        
+        this.nodesByName.putIfAbsent(source.getName(), source);
+        this.nodesByName.putIfAbsent(destination.getName(), destination);
+    }
+    
+    private void addEdge(Edge edge) {
+        Node source = edge.getFrom();
+        Node destination = edge.getTo();
+        
+        this.edgesBySource.putIfAbsent(source, new ArrayList<Edge>());
+        this.edgesBySource.get(source).add(edge);
     }
 }
 //containsKey
