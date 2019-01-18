@@ -18,7 +18,7 @@ public class Path {
         }
         this.edges = edges;
         this.source = edges.get(0).getSource();
-        this.destination = edges.get(edges.size() - 1).getSource();
+        this.destination = edges.get(edges.size() - 1).getDestination();
     }
 
     public int getWeight() {

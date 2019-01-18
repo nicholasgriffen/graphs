@@ -24,7 +24,7 @@ public class Graph {
     }
     
     public Graph setEdge(Edge edge) {
-        this.addNodesAndEdge(Edge edge);
+        this.addNodesAndEdge(edge);
         return this;
     }
     
@@ -43,7 +43,6 @@ public class Graph {
     
     private void addEdge(Edge edge) {
         Node source = edge.getSource();
-        Node destination = edge.getDestination();
         
         this.edgesBySource.putIfAbsent(source, new ArrayList<Edge>());
         this.edgesBySource.get(source).add(edge);

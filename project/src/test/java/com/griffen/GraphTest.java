@@ -1,9 +1,9 @@
-package com.griffen;
+// package com.griffen;
 
-public class Graph {
-    // Edges
-    // Vertices
-    public Graph() {
+// public class Graph {
+//     // Edges
+//     // Vertices
+//     public Graph() {
 
-    }
-}
+//     }
+// }
