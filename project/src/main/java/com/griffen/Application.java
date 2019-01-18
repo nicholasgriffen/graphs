@@ -21,12 +21,12 @@ public class Application {
         Edge BD = new Edge(B, D, 9);
 
         graph
-            .setEdge(BC);
-            .setEdge(CA);
-            .setEdge(CB);
-            .setEdge(DA);
-            .setEdge(DF);
-            .setEdge(FW);
+            .setEdge(BC)
+            .setEdge(CA)
+            .setEdge(CB)
+            .setEdge(DA)
+            .setEdge(DF)
+            .setEdge(FW)
             .setEdge(BD);
 
         PathFinder pathFinder = new PathFinder(graph);
