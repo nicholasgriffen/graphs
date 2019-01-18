@@ -46,15 +46,19 @@ public class PathFinder {
                     return new Path(path);
                 } else {
                     ArrayList<Edge> neighbors = graph.getNeighbors(currentNode);
-                    //expect null if node is not a source of any edges
-                    if (neighbors == null) return new Path();
-                    
-                    for (Edge neighbor : neighbors) {
+                    try {
+                        for (Edge neighbor : neighbors) {
                         searchQueue.add(neighbor.getDestination());
                         sources.put(neighbor.getDestination(), neighbor);
+                        }
+                        //mark node as searched 
+                        searchedNodes.add(currentNode);
+                    } catch (NullPointerException ex) {
+                        //expect null if node is not a source of any edges
+                        ex.printStackTrace();
+                        //continue program execution
+                        return new Path();    
                     }
-                    //mark node as searched 
-                    searchedNodes.add(currentNode);
                 }
             }
         }
