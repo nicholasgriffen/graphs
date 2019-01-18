@@ -29,16 +29,16 @@ public class Graph {
     }
     
     private void addNodes(Edge edge) {
-        Node source = edge.getFrom();
-        Node destination = edge.getTo();
+        Node source = edge.getSource();
+        Node destination = edge.getDestination();
         
         this.nodesByName.putIfAbsent(source.getName(), source);
         this.nodesByName.putIfAbsent(destination.getName(), destination);
     }
     
     private void addEdge(Edge edge) {
-        Node source = edge.getFrom();
-        Node destination = edge.getTo();
+        Node source = edge.getSource();
+        Node destination = edge.getDestination();
         
         this.edgesBySource.putIfAbsent(source, new ArrayList<Edge>());
         this.edgesBySource.get(source).add(edge);
