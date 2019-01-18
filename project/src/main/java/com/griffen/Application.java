@@ -21,13 +21,13 @@ public class Application {
         Edge BD = new Edge(B, D, 9);
 
         graph
-            .addEdge(BC);
-            .addEdge(CA);
-            .addEdge(CB);
-            .addEdge(DA);
-            .addEdge(DF);
-            .addEdge(FW);
-            .addEdge(BD);
+            .setEdge(BC);
+            .setEdge(CA);
+            .setEdge(CB);
+            .setEdge(DA);
+            .setEdge(DF);
+            .setEdge(FW);
+            .setEdge(BD);
 
         PathFinder pathFinder = new PathFinder(graph);
         Path path = pathFinder.breadthFirstSearch("B", "A");
