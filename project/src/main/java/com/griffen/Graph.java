@@ -23,9 +23,14 @@ public class Graph {
         return neighbors;
     }
     
-    public void addNodesAndEdge(Edge edge) {
-        this.addNodes(edge)
-        this.addEdge(edge)
+    public Graph setEdge(Edge edge) {
+        this.addNodesAndEdge(Edge edge);
+        return this;
+    }
+    
+    private void addNodesAndEdge(Edge edge) {
+        this.addNodes(edge);
+        this.addEdge(edge);
     }
     
     private void addNodes(Edge edge) {
@@ -44,5 +49,3 @@ public class Graph {
         this.edgesBySource.get(source).add(edge);
     }
 }
-//containsKey
-//containsValue
