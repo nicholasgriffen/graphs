@@ -39,8 +39,9 @@ public class PathFinder {
                         path.add(step);
                         step = sources.get(step.getSource());
                     }
+                    //source node is last in the list
                     path.add(step);
-                    //Reverse so path is plotted from source to destination
+                    //Reverse to plot path from source to destination
                     Collections.reverse(path);
                     return new Path(path);
                 } else {
