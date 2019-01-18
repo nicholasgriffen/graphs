@@ -12,17 +12,17 @@ public class PathFinder {
         this.graph = graph;
     }
     //BFS - source (string), destination 
-    public Path breadthFirstSearch(String from, String to) {
+    public Path breadthFirstSearch(String source, String destination) {
           
-        Node source = this.graph.getNode(from);
-        Node destination = this.graph.getNode(to);
+        Node source = this.graph.getNode(source);
+        Node destination = this.graph.getNode(destination);
         //Search queue: Nodes to search 
         LinkedList<Node> searchQueue = new LinkedList<>(); 
             //Add source 
         searchQueue.add(source);
             //Searched list: list of nodes that have been searched
         ArrayList<Node> searchedNodes = new ArrayList<>(); 
-        HashMap<Node, Edge> parents = new HashMap<>();
+        HashMap<Node, Edge> sources = new HashMap<>();
         //while search queue
         while(!searchQueue.isEmpty()) {
             //remove item from queue
@@ -34,10 +34,10 @@ public class PathFinder {
                     //build list of edges 
                     //return path 
                     ArrayList<Edge> path = new ArrayList<>(); 
-                    Edge step = parents.get(currentNode);
-                    while (!step.getFrom().equals(source)) {
+                    Edge step = sources.get(currentNode);
+                    while (!step.getSource().equals(source)) {
                         path.add(step);
-                        step = parents.get(step.getFrom());
+                        step = sources.get(step.getSource());
                     }
                     path.add(step);
                     //Reverse so path is plotted from source to destination
@@ -49,8 +49,8 @@ public class PathFinder {
                     if (neighbors == null) return new Path();
                     
                     for (Edge neighbor : neighbors) {
-                        searchQueue.add(neighbor.getTo());
-                        parents.put(neighbor.getTo(), neighbor);
+                        searchQueue.add(neighbor.getDestination());
+                        sources.put(neighbor.getDestination(), neighbor);
                     }
                     //mark node as searched 
                     searchedNodes.add(currentNode);
@@ -59,10 +59,6 @@ public class PathFinder {
         }
         return new Path();
     }
-        
-         
-
     //DIJKSTRA
     //DFS
-    //plot path
 }
