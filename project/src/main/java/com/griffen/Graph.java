@@ -7,23 +7,23 @@ public class Graph {
     //Map Node to edges starting at that node 
     private HashMap<Node, ArrayList<Edge>> edgesBySource;
     //Map node name to node 
-    private HashMap<String, Node> nodes;
+    private HashMap<String, Node> nodesByName;
 
     public Graph() {
         this.edgesBySource = new HashMap<>();
-        this.nodes = new HashMap<>();
+        this.nodesByName = new HashMap<>();
     }
 
     public Node getNode(String name) {
-        return this.nodes.get(name);
+        return this.nodesByName.get(name);
     }
 
     public void addEdge(Edge edge) {
         Node from = edge.getFrom();
         Node to = edge.getTo();
 
-        this.nodes.putIfAbsent(from.getName(), from);
-        this.nodes.putIfAbsent(to.getName(), to);
+        this.nodesByName.putIfAbsent(from.getName(), from);
+        this.nodesByName.putIfAbsent(to.getName(), to);
         
         if (this.edgesBySource.containsKey(from)) {
             this.edgesBySource.get(from).add(edge);
