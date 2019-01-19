@@ -58,16 +58,4 @@ public class Path {
     public ArrayList<Edge> getEdges() {
         return this.edges;
     }
-
-    // public ArrayList<String> getNodeNames() {
-    //     ArrayList<String> nodes = new ArrayList<>();
-    //     for (Edge edge : this.edges) {
-    //         String nodeName = edge.getSource().getName();
-    //         if (!nodes.contains(nodeName)) {
-    //             nodes.add(nodeName);
-    //         }
-    //     }
-    //     nodes.add(this.destination.getName());
-    //     return nodes;
-    // }
 }
