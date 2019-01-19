@@ -1,9 +1,9 @@
-package com.griffen;
+package com.kiwiland;
 
 import java.util.ArrayList;
 
 public class ExactPath implements PathFinder {
-    private Graph graph; 
+    private Graph graph;
 
     public ExactPath(Graph graph) {
         this.graph = graph;
@@ -23,9 +23,9 @@ public class ExactPath implements PathFinder {
                 }
             } catch (NullPointerException ex) {
                 //expect null if node is not a source of any edges
-                ex.printStackTrace();   
+                ex.printStackTrace();
             }
-        //not found 
+        //not found
         return 0;
     }
 }

@@ -1,4 +1,3 @@
-
 1. The distance of the route A-B-C.
 2. The distance of the route A-D.
 3. The distance of the route A-D-C.
@@ -11,7 +10,7 @@
 10. The number of different routes from C to C with a distance of less than 30.  In the sample data, the trips are: CDC, CEBC, CEBCDC, CDCEBC, CDEBC, CEBCEBC, CEBCEBCEBC.
 
 Expected Output:
- 
+
 Output #1: 9
 Output #2: 5
 Output #3: 13

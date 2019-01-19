@@ -1,4 +1,4 @@
-package com.griffen;
+package com.kiwiland;
 
 import java.util.Objects;
 

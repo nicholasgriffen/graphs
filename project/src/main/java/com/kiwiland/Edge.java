@@ -1,4 +1,4 @@
-package com.griffen;
+package com.kiwiland;
 
 import java.util.Objects;
 
@@ -38,7 +38,7 @@ public class Edge implements Comparable<Edge> {
         return Objects.hash(source, destination, weight);
     }
 
-    @Override 
+    @Override
     public int compareTo(Edge e) {
         return Integer.compare(this.getWeight(), e.getWeight());
     }

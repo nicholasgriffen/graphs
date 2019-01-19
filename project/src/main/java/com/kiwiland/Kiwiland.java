@@ -1,4 +1,4 @@
-package com.griffen;
+package com.kiwiland;
 
 public class Kiwiland {
     private Graph graph;
@@ -10,7 +10,7 @@ public class Kiwiland {
         Node C = new Node("C");
         Node D = new Node("D");
         Node E = new Node("E");
-        
+
 
         Edge AB = new Edge(A, B, 5);
         Edge BC = new Edge(B, C, 4);
@@ -41,7 +41,7 @@ public class Kiwiland {
         PathFinder pathFinder = new ExactPath(this.graph);
         int pathAB = pathFinder.find("A", "B");
         int pathBC = pathFinder.find("B", "C");
-        
+
         return pathAB + pathBC;
     }
 
@@ -55,7 +55,7 @@ public class Kiwiland {
         PathFinder pathFinder = new ExactPath(this.graph);
         int pathAD = pathFinder.find("A", "D");
         int pathDC = pathFinder.find("D", "C");
-        
+
         return pathAD + pathDC;
     }
 
@@ -65,7 +65,7 @@ public class Kiwiland {
         int pathEB = pathFinder.find("E", "B");
         int pathBC = pathFinder.find("B", "C");
         int pathCD = pathFinder.find("C", "D");
-        
+
         return pathAE + pathEB + pathBC + pathCD;
     }
 
@@ -73,7 +73,7 @@ public class Kiwiland {
         PathFinder pathFinder = new ExactPath(this.graph);
         int pathAE = pathFinder.find("A", "E");
         int pathED = pathFinder.find("E", "D");
-        
+
         if (pathAE == 0 || pathED == 0) {
             return "NO SUCH ROUTE";
         } else {
