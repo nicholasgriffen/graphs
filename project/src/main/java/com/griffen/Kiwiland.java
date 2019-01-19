@@ -25,14 +25,14 @@ public class Kiwiland {
 
 
         graph
-            .setEdge(AB)
             .setEdge(BC)
+            .setEdge(DE)
             .setEdge(CD)
             .setEdge(DC)
-            .setEdge(DE)
+            .setEdge(AB)
+            .setEdge(AD)
             .setEdge(CE)
             .setEdge(EB)
-            .setEdge(AD)
             .setEdge(AE);
 
     }
@@ -74,10 +74,35 @@ public class Kiwiland {
         int pathAE = pathFinder.find("A", "E");
         int pathED = pathFinder.find("E", "D");
         
-        if (pathAE == 0 || pathED ==0) {
+        if (pathAE == 0 || pathED == 0) {
             return "NO SUCH ROUTE";
         } else {
             return "" + pathAE + pathED;
         }
+    }
+
+    public int requirement6() {
+        PathFinder pathFinder = new Constrained(this.graph, (Path p) -> p.getCount() <= 3);
+        return pathFinder.find("C", "C");
+    }
+
+    public int requirement7() {
+        PathFinder pathFinder = new Constrained(this.graph, (Path p) -> p.getCount() == 4, (Path p) -> p.getCount() <= 4);
+        return pathFinder.find("A", "C");
+    }
+
+    public int requirement8() {
+        PathFinder pathFinder = new Dijkstra(this.graph);
+        return pathFinder.find("A", "C");
+    }
+
+    public int requirement9() {
+        PathFinder pathFinder = new Dijkstra(this.graph);
+        return pathFinder.find("B", "B");
+    }
+
+    public int requirement10() {
+        PathFinder pathFinder = new Constrained(this.graph, (Path p) -> p.getWeight() < 30);
+        return pathFinder.find("C", "C");
     }
 }

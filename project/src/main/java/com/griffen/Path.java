@@ -3,41 +3,71 @@ package com.griffen;
 import java.util.ArrayList;
 
 public class Path {
-    private int weight;
     private ArrayList<Edge> edges;
-    private Node source; 
-    private Node destination;
 
-    Path() {
-        this.weight = 0;
+    Path(Edge edge) {
+        this.edges = new ArrayList<>();
+        this.addEdge(edge);
     }
 
     Path(ArrayList<Edge> edges)  {
-        for (Edge edge : edges) {
-            this.weight += edge.getWeight();
-        }
         this.edges = edges;
-        this.source = edges.get(0).getSource();
-        this.destination = edges.get(edges.size() - 1).getDestination();
+    }
+
+    public Path copy() {
+        ArrayList<Edge> edgesCopy = (ArrayList<Edge>) this.getEdges().clone();
+        return new Path(edgesCopy);
+    }
+
+    public Path addEdge(Edge edge) {
+        edges.add(edge);
+        return this;
+    }
+
+    public int getCount() {
+        return this.getEdges().size();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder out = new StringBuilder();
+        for (Edge edge : this.getEdges()) {
+            out.append("[" + edge.getSource().getName() + "->" + edge.getDestination().getName() + " " + edge.getWeight() + "]");
+        }
+        out.append("   " + this.getWeight());
+
+        return out.toString();
+    }
+
+    public Node getSource() {
+        return edges.get(0).getSource();
+    }
+
+    public Node getDestination() {
+        return edges.get(edges.size() - 1).getDestination();
     }
 
     public int getWeight() {
-        return this.weight;
+        int weight = 0;
+        for (Edge edge : edges) {
+            weight += edge.getWeight();
+        }
+        return weight;
     }
 
     public ArrayList<Edge> getEdges() {
         return this.edges;
     }
 
-    public ArrayList<String> getNodeNames() {
-        ArrayList<String> nodes = new ArrayList<>();
-        for (Edge edge : this.edges) {
-            String nodeName = edge.getSource().getName();
-            if (!nodes.contains(nodeName)) {
-                nodes.add(nodeName);
-            }
-        }
-        nodes.add(this.destination.getName());
-        return nodes;
-    }
+    // public ArrayList<String> getNodeNames() {
+    //     ArrayList<String> nodes = new ArrayList<>();
+    //     for (Edge edge : this.edges) {
+    //         String nodeName = edge.getSource().getName();
+    //         if (!nodes.contains(nodeName)) {
+    //             nodes.add(nodeName);
+    //         }
+    //     }
+    //     nodes.add(this.destination.getName());
+    //     return nodes;
+    // }
 }

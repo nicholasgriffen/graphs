@@ -32,6 +32,23 @@ public class BreadthFirst implements PathFinder {
         if (!searchedNodes.contains(currentNode)) {
             //if item is goal 
             if (currentNode.equals(destination)) {
+                if (searchedNodes.size() == 0) {
+                    ArrayList<Edge> neighbors = graph.getNeighbors(currentNode);
+                try {
+                    for (Edge neighbor : neighbors) {
+                    searchQueue.add(neighbor.getDestination());
+                    sources.put(neighbor.getDestination(), neighbor);
+                    }
+                    //mark node as searched 
+                    searchedNodes.add(currentNode);
+                } catch (NullPointerException ex) {
+                    //expect null if node is not a source of any edges
+                    ex.printStackTrace();
+                    //continue program execution
+                    return 0;    
+                }
+                continue;
+                }
                 //build list of edges 
                 //return path 
                 ArrayList<Edge> path = new ArrayList<>(); 
@@ -42,9 +59,6 @@ public class BreadthFirst implements PathFinder {
                 }
                 path.add(step);
                 Collections.reverse(path);
-                for (String thing : new Path(path).getNodeNames()) {
-                    System.out.print(thing);
-                }
                 //Reverse to plot path from source to destination
                 return new Path(path).getWeight();
             } else {

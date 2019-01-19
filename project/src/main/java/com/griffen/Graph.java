@@ -2,6 +2,7 @@ package com.griffen;
 
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Graph {
     //Map Node to edges starting at that node 
@@ -12,6 +13,10 @@ public class Graph {
     public Graph() {
         this.edgesBySource = new HashMap<>();
         this.nodesByName = new HashMap<>();
+    }
+    
+    public Collection<Node> getNodes() {
+        return this.nodesByName.values();
     }
     
     public Node getNode(String name) {
